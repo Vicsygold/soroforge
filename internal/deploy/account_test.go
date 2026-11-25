@@ -3,6 +3,7 @@ package deploy_test
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -149,6 +150,11 @@ func TestFormatStroops(t *testing.T) {
 	for stroops, want := range tests {
 		assert.Equal(t, want, deploy.FormatStroops(stroops), "stroops: %d", stroops)
 	}
+}
+
+func ExampleFormatStroops() {
+	fmt.Println(deploy.FormatStroops(12_345_678))
+	// Output: 1.2345678
 }
 
 func friendbotConfig(friendbotURL string) string {
